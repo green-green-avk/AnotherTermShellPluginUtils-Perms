@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="green_green_avk.anothertermshellpluginutils_perms">
+
+    <application>
+
+        <receiver
+            android:name=".PermissionRequestReceiver"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedReceiver" />
+
+        <activity android:name=".PermissionRequestActivity" />
+
+    </application>
+
+</manifest>
