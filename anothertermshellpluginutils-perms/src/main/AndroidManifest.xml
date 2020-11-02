@@ -11,7 +11,10 @@
             android:exported="true"
             tools:ignore="ExportedReceiver" />
 
-        <activity android:name=".PermissionRequestActivity" />
+        <activity
+            android:name=".PermissionRequestActivity"
+            android:enabled="true"
+            android:exported="true" />
 
     </application>
 

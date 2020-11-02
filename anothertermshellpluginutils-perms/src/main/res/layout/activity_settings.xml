@@ -8,6 +8,4 @@
     android:orientation="vertical"
     android:padding="8dp"
     tools:context=".DefaultSettingsActivity"
-    tools:layout="@layout/content_permissions_settings">
-
-</fragment>
+    tools:layout="@layout/content_permissions_settings" />

@@ -15,6 +15,9 @@ import androidx.annotation.Nullable;
 /**
  * Not supposed to be used directly.
  * It's in this module manifest.
+ * To be accessed via an explicit intent with the URI in the form:
+ * <p><code>package:&lt;package_to_be_trusted_by_this_plugin&gt;</code></p>
+ * with the suffix <code>#revoke</code> to revoke.
  */
 public final class PermissionRequestActivity extends Activity {
     private String packageName = null;
@@ -30,7 +33,13 @@ public final class PermissionRequestActivity extends Activity {
             return;
         }
         final String pkgName = uri.getSchemeSpecificPart();
-        if (pkgName == null) {
+        try {
+            if (pkgName == null || uri.getFragment() != null
+                    || Permissions.verify(this, pkgName)) {
+                finish();
+                return;
+            }
+        } catch (final PackageManager.NameNotFoundException e) {
             finish();
             return;
         }

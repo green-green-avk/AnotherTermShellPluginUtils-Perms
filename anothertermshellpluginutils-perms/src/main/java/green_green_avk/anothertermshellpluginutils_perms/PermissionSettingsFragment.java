@@ -12,7 +12,7 @@ import android.widget.CompoundButton;
 import java.util.Arrays;
 
 /**
- * To be used as a part of the plugin settings activity.
+ * To be used as a part of a plugin settings activity.
  */
 public final class PermissionSettingsFragment extends ListFragment {
     @Override
