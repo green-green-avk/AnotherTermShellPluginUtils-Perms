@@ -14,11 +14,11 @@ import androidx.annotation.NonNull;
  * To be accessed via an explicit intent with the URI in the form:
  * <p><code>package:&lt;package_to_be_trusted_by_this_plugin&gt;</code></p>
  * with the suffix <code>#revoke</code> to revoke.
- * <b>Note:</b> Consider calling {@link PermissionRequestActivity} if target API &gt;= 29.
+ * <p><b>Note:</b> Consider calling {@link PermissionRequestActivity} if target API &gt;= 29.
  * (It was used mostly to prevent a screen blinking artifact
- * when the permission is already granted and the plugin process does not already started.)
+ * when the permission is already granted and the plugin process does not already started.)</p>
  * Don't forget to remove it from the final manifest if unused
- * (<a href="https://developer.android.com/studio/build/manifest-merge#merge_rule_markers">
+ * (<a target="_blank" href="https://developer.android.com/studio/build/manifest-merge#merge_rule_markers">
  * <code>tools:node="remove"</code>
  * </a>).
  */
