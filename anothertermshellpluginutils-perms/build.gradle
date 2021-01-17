@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.green-green-avk'
-version = '1.2'
+version = '1.3'
 
 android {
     compileSdkVersion 29
@@ -9,7 +9,7 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 29
-        versionCode 3
+        versionCode 4
         versionName version
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -32,9 +32,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'com.github.green-green-avk:anothertermshellpluginutils:1.11'
+    implementation 'com.github.green-green-avk:anothertermshellpluginutils:1.12'
     javadocDeps 'androidx.annotation:annotation:1.1.0'
-    javadocDeps 'com.github.green-green-avk:anothertermshellpluginutils:1.11'
+    javadocDeps 'com.github.green-green-avk:anothertermshellpluginutils:1.12'
 }
 
 // Build a jar with source files.
