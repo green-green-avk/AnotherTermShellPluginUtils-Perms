@@ -18,7 +18,7 @@ public final class PermissionSettingsFragment extends ListFragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.content_permissions_settings,
+        return inflater.inflate(R.layout.plugin_utils_permissions_settings_content,
                 container, false);
     }
 
@@ -66,7 +66,7 @@ public final class PermissionSettingsFragment extends ListFragment {
             public View getView(final int position, final View convertView,
                                 final ViewGroup parent) {
                 final View v = convertView == null ? LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.entry_permission, parent, false)
+                        .inflate(R.layout.plugin_utils_permission_entry, parent, false)
                         : convertView;
                 Utils.setAppEntry(v.findViewById(R.id.app), pkgNames[position]);
                 final CompoundButton wGranted = v.findViewById(R.id.granted);

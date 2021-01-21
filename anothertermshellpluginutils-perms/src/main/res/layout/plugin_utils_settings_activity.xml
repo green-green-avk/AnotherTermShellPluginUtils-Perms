@@ -5,7 +5,6 @@
     android:name="green_green_avk.anothertermshellpluginutils_perms.PermissionSettingsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="8dp"
     tools:context=".DefaultSettingsActivity"
-    tools:layout="@layout/content_permissions_settings" />
+    tools:layout="@layout/plugin_utils_permissions_settings_content" />

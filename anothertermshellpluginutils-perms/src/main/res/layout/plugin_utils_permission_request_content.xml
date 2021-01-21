@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/page_margin"
+    android:padding="@dimen/plugin_utils_page_margin"
     tools:context=".PermissionRequestActivity">
 
     <LinearLayout
@@ -18,7 +18,7 @@
             android:id="@+id/icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/elts_margin"
+            android:layout_margin="@dimen/plugin_utils_item_margin"
             android:src="@android:mipmap/sym_def_app_icon"
             tools:ignore="ContentDescription" />
 
@@ -26,7 +26,7 @@
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/elts_margin"
+            android:layout_margin="@dimen/plugin_utils_item_margin"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceLarge"
             tools:text="Title" />
@@ -36,14 +36,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/elts_margin"
+        android:layout_margin="@dimen/plugin_utils_item_margin"
         android:layout_weight="1"
         android:gravity="center_horizontal|bottom"
         android:text="@string/msg_do_you_want_to_grant_access_to_the_next_application" />
 
     <include
         android:id="@+id/app"
-        layout="@layout/entry_app"
+        layout="@layout/plugin_utils_app_entry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -56,7 +56,7 @@
         style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/elts_margin"
+        android:layout_margin="@dimen/plugin_utils_item_margin"
         android:orientation="horizontal">
 
         <Button

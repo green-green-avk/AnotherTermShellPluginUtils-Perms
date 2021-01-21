@@ -16,7 +16,7 @@
             android:id="@+id/app_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/elts_margin"
+            android:layout_margin="@dimen/plugin_utils_item_margin"
             android:src="@android:mipmap/sym_def_app_icon"
             tools:ignore="ContentDescription" />
 
@@ -24,7 +24,7 @@
             android:id="@+id/app_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/elts_margin"
+            android:layout_margin="@dimen/plugin_utils_item_margin"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textIsSelectable="true"
@@ -36,7 +36,7 @@
         android:id="@+id/app_package"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/elts_margin"
+        android:layout_margin="@dimen/plugin_utils_item_margin"
         android:gravity="center_horizontal"
         android:importantForAutofill="no"
         android:textAppearance="?android:attr/textAppearanceSmall"

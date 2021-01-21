@@ -44,7 +44,7 @@ public final class PermissionRequestActivity extends Activity {
             return;
         }
         packageName = pkgName;
-        setContentView(R.layout.content_permission_request);
+        setContentView(R.layout.plugin_utils_permission_request_content);
         final ImageView wIcon = findViewById(R.id.icon);
         final TextView wTitle = findViewById(R.id.title);
         wIcon.setImageResource(getApplicationInfo().icon);
