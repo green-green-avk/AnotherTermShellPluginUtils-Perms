@@ -13,6 +13,9 @@ import java.util.Arrays;
 
 /**
  * To be used as a part of a plugin settings activity.
+ * <p><b>Note:</b> Deprecated {@link ListFragment} is used purely to avoid application bloating
+ * from <em>androidx.appcompat:appcompat</em> usage
+ * (it will likely be changed in future though).</p>
  */
 public final class PermissionSettingsFragment extends ListFragment {
     @Override

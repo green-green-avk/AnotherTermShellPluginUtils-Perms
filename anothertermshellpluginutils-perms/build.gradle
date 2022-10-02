@@ -4,15 +4,17 @@ plugins {
 }
 
 group = 'com.github.green-green-avk'
-version = '1.5'
+version = '1.6'
 
 android {
-    compileSdkVersion 30
+    namespace 'green_green_avk.anothertermshellpluginutils_perms'
+
+    compileSdk 31
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 30
-        versionCode 6
+        minSdk 14
+        targetSdk 31
+        versionCode 7
         versionName version
 
         consumerProguardFiles 'consumer-rules.pro'
@@ -20,12 +22,12 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.annotation:annotation:1.2.0'
-    implementation 'com.github.green-green-avk:anothertermshellpluginutils:1.15'
+    implementation 'androidx.annotation:annotation:1.5.0'
+    implementation 'com.github.green-green-avk:anothertermshellpluginutils:1.16'
 }
 
 task sourcesJar(type: Jar) {
-    classifier "sources"
+    classifier 'sources'
     from android.sourceSets.main.java.srcDirs
 }
 

@@ -47,7 +47,7 @@ public final class Permissions {
      * All the packages with the specified UID must match.
      *
      * @param context Application context.
-     * @return <code>true</code> on success.
+     * @return {@code true} on success.
      */
     @CheckResult
     public static boolean verifyByBinder(@NonNull final Context context) {
@@ -69,7 +69,7 @@ public final class Permissions {
      *
      * @param context     Application context.
      * @param packageName Client application package name.
-     * @return <code>true</code> on success.
+     * @return {@code true} on success.
      * @throws PackageManager.NameNotFoundException If the package was not found.
      */
     @CheckResult
@@ -78,7 +78,7 @@ public final class Permissions {
         final Set<String> pss = getSignaturesStr(context, packageName);
         if (pss.isEmpty()) return false;
         final SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
-        final Set<String> signs = sp.getStringSet(packageName, Collections.<String>emptySet());
+        final Set<String> signs = sp.getStringSet(packageName, Collections.emptySet());
         return pss.equals(signs);
     }
 
