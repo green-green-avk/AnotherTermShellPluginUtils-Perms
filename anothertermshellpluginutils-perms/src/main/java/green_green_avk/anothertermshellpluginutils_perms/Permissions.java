@@ -33,17 +33,19 @@ public final class Permissions {
                                                 @NonNull final String packageName)
             throws PackageManager.NameNotFoundException {
         final PackageManager pm = context.getPackageManager();
-        final PackageInfo info;
-        info = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
-        if (info.signatures == null) return Collections.emptySet();
+        final PackageInfo info =
+                pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
+        if (info.signatures == null)
+            return Collections.emptySet();
         final Set<String> r = new HashSet<>();
-        for (final Signature sign : info.signatures) r.add(Auth.getFingerprint(sign));
+        for (final Signature sign : info.signatures)
+            r.add(Auth.getFingerprint(sign));
         return r;
     }
 
     /**
-     * Verifies a caller in the context of a current android.os.Binder transaction
-     * by Binder.getCallingUid().
+     * Verifies a caller in the context of a current {@link Binder} transaction
+     * by {@link Binder#getCallingUid()}.
      * All the packages with the specified UID must match.
      *
      * @param context Application context.
@@ -53,10 +55,12 @@ public final class Permissions {
     public static boolean verifyByBinder(@NonNull final Context context) {
         final PackageManager pm = context.getPackageManager();
         final String[] pp = pm.getPackagesForUid(Binder.getCallingUid());
-        if (pp == null || pp.length <= 0) return false;
+        if (pp == null || pp.length <= 0)
+            return false;
         for (final String p : pp)
             try {
-                if (!verify(context, p)) return false;
+                if (!verify(context, p))
+                    return false;
             } catch (final PackageManager.NameNotFoundException e) {
                 return false;
             }
@@ -76,9 +80,12 @@ public final class Permissions {
     public static boolean verify(@NonNull final Context context, @NonNull final String packageName)
             throws PackageManager.NameNotFoundException {
         final Set<String> pss = getSignaturesStr(context, packageName);
-        if (pss.isEmpty()) return false;
-        final SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
-        final Set<String> signs = sp.getStringSet(packageName, Collections.emptySet());
+        if (pss.isEmpty())
+            return false;
+        final SharedPreferences sp =
+                context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        final Set<String> signs =
+                sp.getStringSet(packageName, Collections.emptySet());
         return pss.equals(signs);
     }
 
@@ -92,8 +99,10 @@ public final class Permissions {
     public static void grant(@NonNull final Context context, @NonNull final String packageName)
             throws PackageManager.NameNotFoundException {
         final Set<String> pss = getSignaturesStr(context, packageName);
-        if (pss.isEmpty()) return;
-        final SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        if (pss.isEmpty())
+            return;
+        final SharedPreferences sp =
+                context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         final SharedPreferences.Editor ed = sp.edit();
         ed.putStringSet(packageName, pss);
         ed.apply();
@@ -106,14 +115,16 @@ public final class Permissions {
      * @param packageName Client application package name.
      */
     public static void revoke(@NonNull final Context context, @NonNull final String packageName) {
-        final SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        final SharedPreferences sp =
+                context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         final SharedPreferences.Editor ed = sp.edit();
         ed.remove(packageName);
         ed.apply();
     }
 
     static Set<String> getPackageNamesAsSet(@NonNull final Context context) {
-        final SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        final SharedPreferences sp =
+                context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         return sp.getAll().keySet();
     }
 }

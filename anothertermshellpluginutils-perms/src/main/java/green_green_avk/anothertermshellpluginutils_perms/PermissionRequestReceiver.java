@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
  * <p>
  * It is in this module's manifest and
  * supposed to be accessed via an explicit intent with the URI in the form:
- * <p>{@code package:{app_id_to_be_trusted_by_this_plugin>}}</p>
+ * <p>{@code package:{app_id_to_be_trusted_by_this_plugin}}</p>
  * with the suffix {@code #revoke} to revoke.
  * <p><b>Note:</b> Consider calling {@link PermissionRequestActivity} if target API &gt;= 29.
  * (It was used mostly to prevent a screen blinking artifact

@@ -38,8 +38,8 @@ public final class PermissionSettingsFragment extends ListFragment {
             }
 
             private void init() {
-                pkgNames =
-                        Permissions.getPackageNamesAsSet(view.getContext()).toArray(new String[0]);
+                pkgNames = Permissions
+                        .getPackageNamesAsSet(view.getContext()).toArray(new String[0]);
                 pkgGranted = new boolean[pkgNames.length];
                 Arrays.fill(pkgGranted, true);
             }
@@ -69,25 +69,26 @@ public final class PermissionSettingsFragment extends ListFragment {
             public View getView(final int position, final View convertView,
                                 final ViewGroup parent) {
                 final View v = convertView == null ? LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.plugin_utils_permission_entry, parent, false)
+                        .inflate(R.layout.plugin_utils_permission_entry,
+                                parent, false)
                         : convertView;
                 Utils.setAppEntry(v.findViewById(R.id.app), pkgNames[position]);
                 final CompoundButton wGranted = v.findViewById(R.id.granted);
                 wGranted.setChecked(pkgGranted[position]);
-                wGranted.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(final CompoundButton v,
-                                                 final boolean isChecked) {
-                        try {
-                            if (isChecked) Permissions.grant(v.getContext(), pkgNames[position]);
-                            else Permissions.revoke(v.getContext(), pkgNames[position]);
-                        } catch (final PackageManager.NameNotFoundException ignored) {
-                            v.setChecked(false);
-                            pkgGranted[position] = false;
-                            return;
-                        }
-                        pkgGranted[position] = isChecked;
+                wGranted.setOnCheckedChangeListener((_v, isChecked) -> {
+                    try {
+                        if (isChecked)
+                            Permissions.grant(_v.getContext(),
+                                    pkgNames[position]);
+                        else
+                            Permissions.revoke(_v.getContext(),
+                                    pkgNames[position]);
+                    } catch (final PackageManager.NameNotFoundException ignored) {
+                        _v.setChecked(false);
+                        pkgGranted[position] = false;
+                        return;
                     }
+                    pkgGranted[position] = isChecked;
                 });
                 return v;
             }

@@ -27,7 +27,8 @@ public final class PermissionRequestActivity extends Activity {
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final ActionBar ab = getActionBar();
-        if (ab != null) ab.hide();
+        if (ab != null)
+            ab.hide();
         final Uri uri = getIntent().getData();
         if (uri == null || !"package".equals(uri.getScheme())) {
             finish();
